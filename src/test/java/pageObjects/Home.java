@@ -17,12 +17,31 @@ import io.cucumber.datatable.dependency.com.fasterxml.jackson.annotation.JsonTyp
 import io.cucumber.java.pt.Quando;
 import net.bytebuddy.asm.Advice.This;	
 	
+import org.openqa.selenium.support.ui.Wait;
 public class Home {
 	
 		
 	//@FindBy(id = "//*[@id=\"switch-version-select\"]/option[4]")
 	//private WebElement opcaoCombo;
 		 
+	@FindBy(id = "onetrust-accept-btn-handler")
+	private WebElement botaoOkCookies;
+	
+	@FindBy(xpath = "//*[@id=\"header-nav-bar\"]/ul/li[1]/a")
+	private WebElement botaoMenuVagas;
+	
+	@FindBy(name = "location")
+	private WebElement campoVagaEmpresa;
+	
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div[1]/form/div/div[3]/button")
+	private WebElement botaoBuscarVagaEmpresa;
+	
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div[3]/div[1]/a/div[1]/div[1]/div[3]/button")
+	private WebElement botaoVerVaga;
+	
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div[1]/div/div[1]/div[1]/nav/div[2]/div[8]/div/button")
+	private WebElement botaoTenhoInteresse;
+	/*
 	@FindBy(xpath = "//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a")
 	private WebElement botaoLogin;
 	
@@ -73,7 +92,32 @@ public class Home {
 	
 	@FindBy(id = "postcode")
 	private WebElement campoPostalCode;
+*/	
 	
+	public void acionarBotaoOkCookies() {
+		botaoOkCookies.click();
+	}
+	
+	public void acionarMenuVagas() {
+		botaoMenuVagas.click();
+	}
+	
+	public void digitarCampoEmpresa(String empresaVaga) {
+		campoVagaEmpresa.sendKeys(empresaVaga);
+	}
+	
+	public void acionarBotaoVagaEmpresa() {
+		botaoBuscarVagaEmpresa.click();
+	}
+	
+	public void acionarBotaoVerVaga() {
+		botaoVerVaga.click();
+	}
+	
+	public void acionarBotaoTenhoInteresse() {
+		botaoTenhoInteresse.click();
+	}
+/*	
    public void acionarBotaoLogin() {
 	   botaoLogin.click();				
    }
@@ -165,9 +209,11 @@ public class Home {
 	public void acionarBotaoRegistrar() {
 		botaoRegistrar.click();
 	}
+
 	
    public void realizarLogin(String email, String firstName, String lastName, String senha, Integer dia, String mes, Integer ano, 
 		   String company, String address1, String address2, String city, String state, String mobilePhone){
+	   acionarBotaoOkCookies();
 	   acionarBotaoLogin(); 
 	   informarCampoEmail(email);
 	   acionarBotaoCriarLogin();
@@ -190,6 +236,15 @@ public class Home {
 	   acionarBotaoRegistrar();
    	}
 		
-		
-		
+*/		
+	
+	public void realizarLogin(String empresaVaga){
+		   acionarBotaoOkCookies();
+		   acionarMenuVagas();
+		   digitarCampoEmpresa(empresaVaga);
+		   acionarBotaoVagaEmpresa();
+		   acionarBotaoVerVaga();
+		   acionarBotaoTenhoInteresse();
+	   	}
+	
 	}

@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 public class Hooks {
 	
- @Before(order = 1, value = "@login")
+ @Before(order = 1, value = "@Coodesh")
  public void setUp() {
 	  acessarSistema(); 
 	  

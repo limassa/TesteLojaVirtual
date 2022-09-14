@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.awt.peer.LabelPeer;
 
+import org.junit.rules.TestRule;
 import org.junit.validator.PublicClassValidator;
 import org.omg.CORBA.PUBLIC_MEMBER;
 import org.openqa.selenium.By;
@@ -11,10 +12,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.jv.Nalika;
+import cucumber.runtime.Utils;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
 import pageObjects.Home;
-
 import static utils.Utils.*;
 
 public class HomeSteps {
@@ -22,11 +23,39 @@ public class HomeSteps {
 	Home lp = new Home();
 	
 	
-	@Quando("clicar no botao Login")
-	public void clicarBotaoLogin() {
-		Na(Home.class).acionarBotaoLogin();
+	@Quando("clicar no botao OK")
+	public void acionarBotaoOkCookies() {
+		Na(Home.class).acionarBotaoOkCookies();
 	}
 	
+	@And("clicar no Menu Vagas")
+	public void acionarMenuVagas() {
+		Na(Home.class).acionarMenuVagas();
+	}
+	
+	@And("digite a empresa {string}")
+	public void informarEmpresaVaga(String empresaVaga) {
+		Na(Home.class).digitarCampoEmpresa(empresaVaga);
+	}
+	
+	@And("clicar no botao Buscar")
+	public void acionarBotaoVagaEmpresa() {
+		Na(Home.class).acionarBotaoVagaEmpresa();
+		
+	}
+	
+	@And("clicar no botao Ver Vaga")
+	public void acionarBotaoVerVaga() {
+		Na(Home.class).acionarBotaoVerVaga();
+	}
+	
+	@And("clicar no botao Tenho Interesse")
+	public void acionarBotaoTenhoInteresse() {
+		Na(Home.class).acionarBotaoTenhoInteresse();
+	}
+	
+	
+	/*
 	@And("informar o email {string}")
 	public void informarEmail(String email) {
 		Na(Home.class).informarCampoEmail(email);
@@ -121,5 +150,5 @@ public class HomeSteps {
 	public void clicarBotaoRegistrar() {
 		Na(Home.class).acionarBotaoRegistrar();
 	}
-	
+	*/
 }
